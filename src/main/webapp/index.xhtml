@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h1>Contacts</h1>
+    <h:form>
+        <h:dataTable value="#{listContactsBean.allContacts}" var="contact" width="80%" border="1">
+
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                <h:outputText value="#{contact.nome}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                <h:outputText value="#{contact.email}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">&#160;</f:facet>
+                <h:commandButton value="Excluir" action="#{listContactsBean.delete(contact.id)}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">&#160;</f:facet>
+                <h:commandButton value="Alterar" action="telaCadastro">
+                    <f:param name="id" value="#{contact.id}" />
+                </h:commandButton>
+            </h:column>
+
+        </h:dataTable>
+
+
+        <h:commandButton id="TelaCadastro" value="Tela Cadastro:" action="telaCadastro"/>
+        <br/>
+
+    </h:form>
+
+</f:view>
+</html>
