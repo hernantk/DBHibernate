@@ -6,8 +6,8 @@ import br.edu.unisep.contacts.model.entity.Contact;
 public class DeleteContactUseCase {
     
 
-    public void execute(Integer id){
+    public void execute(Contact contact){
         var dao= new ContactDao();
-        dao.exclude(id);
+        dao.exclude(contact);
     }
 }

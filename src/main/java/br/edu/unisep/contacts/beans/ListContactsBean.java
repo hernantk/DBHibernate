@@ -31,8 +31,8 @@ public class ListContactsBean {
         this.allContacts= listUseCase.execute();
     }
 
-    public void delete(Integer id){
-        this.deleteUseCase.execute(id);
+    public void delete(Contact contact){
+        this.deleteUseCase.execute(contact);
         iniciate();
     }
 

@@ -17,7 +17,7 @@ import java.util.Map;
 @RequestScoped
 public class NewContactBean {
     private SaveContactUseCase useCase = new SaveContactUseCase();
-    private FindContactByIdUseCase findByIdUseCase = new FindContactByIdUseCase();
+   // private FindContactByIdUseCase findByIdUseCase = new FindContactByIdUseCase();
 
 
 
@@ -33,9 +33,9 @@ public class NewContactBean {
         // var context=   FacesContext.getCurrentInstance();
          //var contactId = context.getExternalContext().getRequestParameterMap().get("contactId");
         var contactId =params.get("id");
-        if (contactId!= null) {
-            contact=findByIdUseCase.execute(Integer.valueOf(contactId));
-        }
+        //   if (contactId!= null) {
+        //          contact=findByIdUseCase.execute(Integer.valueOf(contactId));
+        //    }
     }
 
 

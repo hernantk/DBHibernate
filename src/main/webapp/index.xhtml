@@ -21,12 +21,12 @@
             </h:column>
             <h:column>
                 <f:facet name="header">&#160;</f:facet>
-                <h:commandButton value="Excluir" action="#{listContactsBean.delete(contact.id)}"/>
+                <h:commandButton value="Excluir" action="#{listContactsBean.delete(contact)}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">&#160;</f:facet>
                 <h:commandButton value="Alterar" action="telaCadastro">
-                    <f:param name="id" value="#{contact.id}" />
+                    <f:param name="contato" value="#{contact.id}" />
                 </h:commandButton>
             </h:column>
 
