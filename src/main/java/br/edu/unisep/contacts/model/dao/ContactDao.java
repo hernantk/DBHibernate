@@ -33,6 +33,8 @@ public class ContactDao {
         var query= session.createQuery("from Contact",Contact.class);
         var result=query.list();
 
+        session.close();
+
 
 
         return result;
@@ -56,32 +58,21 @@ public class ContactDao {
 
     }
 
-//    public Contact  findById(Integer id){
-//        try {
-//          var session = HibernateSessionFactory.getSession();
-    //          var ps = session.prepareStatement("select * from contats where id_contato= ?");
-//      ps.setInt(1,id);
-//          var result= ps.executeQuery();
-    //          Contact contact=null;
-    //      if(result.next()){
-    //          contact=new Contact();
-    //          contact.setId(result.getInt("id_contato"));
-    //          contact.setNome(result.getString("nome"));
-    //          contact.setEmail(result.getString("email"));
-    //      }
-    //      result.close();
-    //      ps.close();
-    //      session.close();
-//
-    //          return contact;
-//
-    //      }catch (Exception e){
-    //      e.printStackTrace();
-    //      return null;
-    //  }
+   public Contact  findById(Integer id){
+        var session = HibernateSessionFactory.getSession();
+
+       var query = session.createQuery("from Contact where id = :CONTACT_ID" , Contact.class);
+
+       query.setParameter("CONTACT_ID",id);
+
+       var result=query.uniqueResult();
+
+       session.close();
 
 
-    //  }
+
+       return result;
+   }
 
     public void update(Contact contact){
         var session = HibernateSessionFactory.getSession();

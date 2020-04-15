@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.annotation.RequestParameterMap;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Map;
@@ -17,7 +18,7 @@ import java.util.Map;
 @RequestScoped
 public class NewContactBean {
     private SaveContactUseCase useCase = new SaveContactUseCase();
-   // private FindContactByIdUseCase findByIdUseCase = new FindContactByIdUseCase();
+    private FindContactByIdUseCase findByIdUseCase = new FindContactByIdUseCase();
 
 
 
@@ -30,12 +31,10 @@ public class NewContactBean {
 
     @PostConstruct
     public void init(){
-        // var context=   FacesContext.getCurrentInstance();
-         //var contactId = context.getExternalContext().getRequestParameterMap().get("contactId");
         var contactId =params.get("id");
-        //   if (contactId!= null) {
-        //          contact=findByIdUseCase.execute(Integer.valueOf(contactId));
-        //    }
+           if (contactId!= null) {
+               contact=findByIdUseCase.execute(Integer.valueOf(contactId));
+            }
     }
 
 
